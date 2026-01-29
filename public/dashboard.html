@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMM Panel - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div id="announcement-bar" class="card" style="display:none; background: var(--primary); color: white;">
+        📢 <span id="announcement-text"></span>
+    </div>
+
+    <div class="container dashboard-grid">
+        <!-- Sidebar -->
+        <aside class="card">
+            <h3>User Panel</h3>
+            <div id="user-info">
+                <p>Balance: <b id="balance">0.00 PKR</b></p>
+            </div>
+            <nav>
+                <button class="btn" onclick="showSection('new-order')">New Order</button>
+                <div style="height:10px"></div>
+                <button class="btn" style="background:transparent; border:1px solid var(--border); color:var(--text-color)" onclick="showSection('orders')">Order History</button>
+                <div style="height:10px"></div>
+                <button class="btn" style="background:#ef4444;" id="logout-btn">Logout</button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <!-- New Order Section -->
+            <section id="new-order" class="card">
+                <h2>New Order</h2>
+                
+                <label>Category</label>
+                <select id="category-select">
+                    <option>Select Category</option>
+                </select>
+
+                <label>Service</label>
+                <select id="service-select">
+                    <option>Select Service</option>
+                </select>
+
+                <div id="service-desc" style="font-size: 0.9em; color: gray; margin-bottom: 10px;"></div>
+
+                <label>Link</label>
+                <input type="text" id="link-input" placeholder="https://...">
+
+                <label>Quantity (Min: <span id="min-qty">0</span> - Max: <span id="max-qty">0</span>)</label>
+                <input type="number" id="qty-input" placeholder="0">
+
+                <div class="card" style="background: var(--bg-color);">
+                    <p>Total Charge: <b id="total-price">0.00</b> PKR</p>
+                </div>
+
+                <button class="btn" id="submit-order">Place Order</button>
+            </section>
+
+            <!-- Order History Section -->
+            <section id="orders" class="card" style="display:none;">
+                <h2>Order History</h2>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; text-align:left; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <th style="padding:10px;">ID</th>
+                                <th>Service</th>
+                                <th>Link</th>
+                                <th>Charge</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table">
+                            <!-- JS will populate -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
