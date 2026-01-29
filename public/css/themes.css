@@ -1,0 +1,38 @@
+:root {
+  /* Default (Light) */
+  --bg-color: #f4f6f8;
+  --card-bg: #ffffff;
+  --text-color: #333333;
+  --primary: #3b82f6;
+  --border: #e2e8f0;
+  --input-bg: #ffffff;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-color: #f8fafc;
+  --primary: #6366f1;
+  --border: #334155;
+  --input-bg: #0f172a;
+}
+
+/* Soft Professional */
+[data-theme="soft"] {
+  --bg-color: #fdfbf7;
+  --card-bg: #ffffff;
+  --text-color: #4a4a4a;
+  --primary: #8b5cf6; /* Soft Purple */
+  --border: #e5e7eb;
+}
+
+/* Premium Gradient */
+[data-theme="gradient"] {
+  --bg-color: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-color: #1a202c;
+  --primary: #d53369;
+  --border: rgba(255,255,255,0.5);
+  --input-bg: rgba(255,255,255,0.8);
+}
